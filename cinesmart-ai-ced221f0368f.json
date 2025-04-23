@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "cinesmart-ai",
+  "private_key_id": "ced221f0368fe1a28e78143c9446bbb3be0f7b45",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEugIBADANBgkqhkiG9w0BAQEFAASCBKQwggSgAgEAAoIBAQCq+rTkYr2SMbOD\nWx4D4nya1MZwKjqrLKw1uUHGU+zbsFizO6YmZDMglbZOD5/8ekz8O01taghUXizk\nauuLE5R+zox1E+gNnFvU7M6TXgUiUZV5qyV6vxRfBsnAur1xCWgv787Ja7phRhvq\nLk+Dv2WonhlI4zUcRFup7AShRykUb/Oum4+xe7wbOYj75SC2xIZGowhpouacZzom\nsSqYTwYOuHMLChGfAOafAtVB6I30vhsBCiD1l/w5jRL7/3xuHfVkmmTkVg1Xm8o5\nfRKCSLq9AjnkVT4EKbL9quqERCnyNzwXUrYQzouNl62rK7wL6BTfk6FrxRNjKN1+\n52RP+VZtAgMBAAECggEAS1lP9aQkGfTIQRebGygpNIyXZN/fWgdGXyikuXPL2qcU\n9+vOFXYr5+zCWhVdsoTtP20c+p5zTEbybrlF01UOKHH7CS98IN9qwuOXR+9zwMOG\nZYeMbVMe9Z/GsqY5DUMRhKqgjThp+ytL6wB8rzleYhhGWU4z3iCr6q7l/XMgQe45\n0/cFfGmBDn7YkA2ZvlovMxzF0xEDWP7KJCxmz2yOC2eZ0v1eCQU/WgrIJ3JHkf8q\n8HB0Qvq1P4WrsRL/JNs2dfpEK076D+4LgjulOiy87rrkllnJw379sANHiyHwMrO1\nreuq0uZCrmyAdI2zubHWpqLCVJA+LFPcGdz82TWAmwKBgQDXA4Up1E0eVvwvihj7\nXGeKicbwOmsEeEVvj8WUqH3VOoDWxG2NxPXHyGo48L4a5erd9vs77ZybDV5+WI41\nGHNnsIpQ9ExDRxaZsdwIm7LdmpySc8f7/QOKo2tS1N2gQ3ja44+LFdiiUQY0jjSn\nEJl5bB4LIlhiIoBSRGqp6Epd2wKBgQDLklhzkEehVZEpHHADTHTgEjfrbHSQ1DXU\nyscO3yVBXoNyeAjF3azS8Zyg7JkAy+xoZCad6bwHJ3eV4JDNA/KYgbScaJfz3fgS\n6vSbY22QRawR2zlvs1pRynE71/dFoANJuIe+JmES4s/N8HREd0scoL7MRx+vnLVt\nk7orkCOjVwJ/P9TLs59TRa6NL4/P2s+T7Yz5glfVbX5HHteP0JI0yRiVJy0pWO0g\nCi91WXIe/d1D3KF19FSWKXHOm7OuhBS+Lgo7Bc2A1nhEPVyP9f5DG4bK9K9qr2Rt\nqLrbIbwQD4P4XQMxmhjiN03WicOt3esPpPxz7tpDYt7bOZEWGVrcuQKBgFiNRGSg\nskf/zLExaZhFveFqi2ChQONvLCtwOb7CWpZg4pT8mfRYRUFNUHC/+p5aFnAigJnY\nfq4uANr1YIeN3A1y/nm7Fb5DJBI2mkitq49Cf2MVFZr9TaCeizsY6rsiq8t5tbKF\nR1zLxNE0c58EtWuykMyTc7kUVedgh29Dt/zpAoGALyaR9YKv9SFJ8LDlpYG6X4/l\nH4m+uOZG4pkhSXTu1OTNjbNh8CuFedDYIm/j1NWEKZdgwUhbmhhBoCiMXuV8qQZZ\n31jimP4VQVGHhFZ3Q6Z30HfdzIAbvHuWh58YUDfT4nxkgnUsCjrwxJY8reoXAOoq\n5itS56A3pJA05eANYhE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@cinesmart-ai.iam.gserviceaccount.com",
+  "client_id": "102492938629378259221",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40cinesmart-ai.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
