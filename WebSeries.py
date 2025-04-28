@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 import pickle
+import time
 
 def app(): 
 
@@ -40,10 +41,24 @@ def app():
     df = pd.DataFrame(WebSeries)
     similarity = pickle.load(open('similarity3.pkl', 'rb'))
 
-    selected_series = st.selectbox(
+    col1, col2, col3 = st.columns([2, 1, 2])  # Adjust width ratio
+
+    with col2:
+        selected_series = st.selectbox(
         'Select a Web Series',
         df['Series Title'].values
     )
+
+    st.markdown("""
+    <style>
+    .stSelectbox div[data-baseweb="select"] {
+        max-width: 100% !important;
+    }
+    button[kind="primary"] {
+        width: 100%;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
     if st.button('Recommend'):
         recommended_series = get_recommendations(selected_series)
@@ -65,7 +80,129 @@ def app():
             st.text(recommended_series[4])
             st.image(recommended_series_posters[4])
     
-        
+        df = pd.read_csv('Songs Dataset.csv')
+
+    col1, col2 = st.columns(2)
+
+# Function to create a counter animation
+    def counter(label, end_value):
+        count = 0
+        increment = end_value // 100  # adjust speed
+        if increment == 0:
+            increment = 1
+        placeholder = st.empty()
+        while count < end_value:
+            count += increment
+            if count > end_value:
+                count = end_value
+            placeholder.metric(label, f"{count:,}")
+            time.sleep(0.01)
+
+    # Create the two counters
+    with col1:
+        counter("Total WebSeries", 12109)
+
+    with col2:
+        counter("Total genres", 858)
+
+        st.markdown(
+    """
+    <style>
+    .card {
+        background-color: #1c1c1f;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+        margin: 10px;
+    }
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 10px;
+    }
+    .description {
+        font-size: 16px;
+        color: #d3d3d3;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+    # Create four columns
+    col1, col2, col3, col4 = st.columns(4)
+
+    # Column 1 - Recommendations
+    with col1:
+        st.markdown(
+            """
+            <div class="card">
+                <div class="title">🧭 Recommendations</div>
+                <div class="description">Get super accurate recommendations based on your ratings from the users whose taste is closest to yours</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # Column 2 - Rate & Review
+    with col2:
+        st.markdown(
+            """
+            <div class="card">
+                <div class="title">📝 Rate & Review</div>
+                <div class="description">Rate everything you watch to build your taste profile, then heap praise or throw shade with reviews</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # Column 3 - Track
+    with col3:
+        st.markdown(
+            """
+            <div class="card">
+                <div class="title">📒 Track</div>
+                <div class="description">Keep track of what you watched with your Watchlist, and when you watched it with your own Watch Journal</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # Column 4 - Collections
+    with col4:
+        st.markdown(
+            """
+            <div class="card">
+                <div class="title">🖼️ Collections</div>
+                <div class="description">Create your own private collections or collaborate on shared lists with friends on any topic or genre</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    st.markdown("""
+    ### **The Smart Way To Pick A Web Series.**
+
+    Choosing the right web series to watch is more than just following trends — it’s about matching your mood, interests, and time investment. Start by identifying the genre you’re currently craving: whether it's mystery, comedy, sci-fi, or drama, knowing your preference narrows your search immediately. Next, check ratings and reviews from trusted platforms but don't rely solely on numbers — read a few short reviews to understand why people liked or disliked it. Always consider the episode length and the total number of seasons; if you have limited time, short and single-season series might suit you better. Watching trailers or pilot episodes is a smart move too — they give you a quick glimpse of storytelling style, pace, and acting quality. Also, factor in the show's creators and actors; if you've enjoyed their past work, chances are higher you'll enjoy this one too. Finally, trust your instincts: if a show doesn’t click with you after an episode or two, it’s perfectly okay to move on. Watching a web series should be exciting, not a commitment you feel forced to finish.
+                
+    ### Why Makes This Web Series Recommendation Engine Unique?
+    1. Personalized Matching:
+    It analyzes individual user preferences (genre, language, actors, ratings) to deliver truly tailored recommendations.
+
+    2. Emotion & Mood Based Suggestions:
+    Goes beyond genre — recommends based on your current mood (thrilling, light-hearted, emotional, etc.).
+
+    3. AI-Powered Smart Learning:
+    Continuously improves suggestions as you watch, rate, and interact more with the platform.
+
+    4. Multi-Platform Integration:
+    Recommends shows available across different streaming services (Netflix, Amazon Prime, Disney+, etc.), not tied to just one.
+
+    5. Rich Metadata Usage:
+    Considers deep factors like director style, screenplay tone, soundtrack feel, and audience reviews — not just superficial tags.
+    """, unsafe_allow_html=True)
     
     st.markdown(
     """
