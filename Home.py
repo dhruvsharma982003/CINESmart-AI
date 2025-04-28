@@ -4,6 +4,7 @@ import requests
 import pandas as pd
 import pickle 
 import random
+import time
 
 def app(): 
     def fetch_poster(movie):
@@ -86,38 +87,141 @@ def app():
         # to load the dataset
     df = pd.read_csv('Movies.csv')
 
-    # to count total movies, genres, languages
-    total_movies = df.shape[0]
-    total_genres = df['genres'].nunique()
-    total_languages = df['original_language'].nunique()
+    # # to count total movies, genres, languages
+    # total_movies = df.shape[0]
+    # total_genres = df['genres'].nunique()
+    # total_languages = df['original_language'].nunique()
 
-    # streamlit layout
+    # # streamlit layout
+
+    # col1, col2, col3 = st.columns(3)
+
+    # with col1:
+    #     st.markdown(f"""
+    #     <div style='text-align: center;'>
+    #         <h1 style='color: #E74C3C;'>{total_movies}</h1>
+    #         <p style='font-size:18px; color: white;'>MOVIES</p>
+    #     </div>
+    # """, unsafe_allow_html=True)
+
+    # with col2:
+    #     st.markdown(f"""
+    #     <div style='text-align: center;'>
+    #         <h1 style='color: #E74C3C;'>{total_genres}</h1>
+    #         <p style='font-size:18px; color: white;'>GENRES</p>
+    #     </div>
+    # """, unsafe_allow_html=True)
+
+    # with col3:
+    #     st.markdown(f"""
+    #     <div style='text-align: center;'>
+    #         <h1 style='color: #E74C3C;'>{total_languages}</h1>
+    #         <p style='font-size:18px; color: white;'>LANGUAGES</p>
+    #     </div>
+    # """, unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns(3)
 
+# Function to create a counter animation
+    def counter(label, end_value):
+        count = 0
+        increment = end_value // 100  # adjust speed
+        if increment == 0:
+            increment = 1
+        placeholder = st.empty()
+        while count < end_value:
+            count += increment
+            if count > end_value:
+                count = end_value
+            placeholder.metric(label, f"{count:,}")
+            time.sleep(0.01)
+
+    # Create the three counters
     with col1:
-        st.markdown(f"""
-        <div style='text-align: center;'>
-            <h1 style='color: #E74C3C;'>{total_movies}</h1>
-            <p style='font-size:18px; color: white;'>MOVIES</p>
-        </div>
-    """, unsafe_allow_html=True)
+        counter("Total Movies", 4803)
 
     with col2:
-        st.markdown(f"""
-        <div style='text-align: center;'>
-            <h1 style='color: #E74C3C;'>{total_genres}</h1>
-            <p style='font-size:18px; color: white;'>GENRES</p>
-        </div>
-    """, unsafe_allow_html=True)
+        counter("Total Genres", 1175)
 
     with col3:
-        st.markdown(f"""
-        <div style='text-align: center;'>
-            <h1 style='color: #E74C3C;'>{total_languages}</h1>
-            <p style='font-size:18px; color: white;'>LANGUAGES</p>
-        </div>
-    """, unsafe_allow_html=True)
+        counter("Total Languages", 37)
+
+        st.markdown(
+    """
+    <style>
+    .card {
+        background-color: #1c1c1f;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+        margin: 10px;
+    }
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 10px;
+    }
+    .description {
+        font-size: 16px;
+        color: #d3d3d3;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+    # Create four columns
+    col1, col2, col3, col4 = st.columns(4)
+
+    # Column 1 - Recommendations
+    with col1:
+        st.markdown(
+            """
+            <div class="card">
+                <div class="title">🧭 Recommendations</div>
+                <div class="description">Get super accurate recommendations based on your ratings from the users whose taste is closest to yours</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # Column 2 - Rate & Review
+    with col2:
+        st.markdown(
+            """
+            <div class="card">
+                <div class="title">📝 Rate & Review</div>
+                <div class="description">Rate everything you watch to build your taste profile, then heap praise or throw shade with reviews</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # Column 3 - Track
+    with col3:
+        st.markdown(
+            """
+            <div class="card">
+                <div class="title">📒 Track</div>
+                <div class="description">Keep track of what you watched with your Watchlist, and when you watched it with your own Watch Journal</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # Column 4 - Collections
+    with col4:
+        st.markdown(
+            """
+            <div class="card">
+                <div class="title">🖼️ Collections</div>
+                <div class="description">Create your own private collections or collaborate on shared lists with friends on any topic or genre</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
         
     st.markdown("""
     ### **The Smart Way To Pick A Movie.**
