@@ -42,28 +42,28 @@ class MultiPage:
     unsafe_allow_html=True
 )
 
-    st.markdown("""
-        <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-
-            .logo-container {
-                display: flex;
-                align-items: center;
-                justify-content: center;  /* Use "flex-start" to align left */
-                padding: 20px 0;
-                background-color: #1c1c1f;
-            }
-
-            .logo-container img {
-                height: 200px;
-            }
-        </style>
-
-        <div class="logo-container">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYp5DGwLsBsV-s-SYLTDByuY2eXZ0suugp1A&s" alt="CINESmart AI Logo">
-        </div>
-    """, unsafe_allow_html=True)
+        st.markdown("""
+            <style>
+                #MainMenu {visibility: hidden;}
+                footer {visibility: hidden;}
+    
+                .logo-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;  /* Use "flex-start" to align left */
+                    padding: 20px 0;
+                    background-color: #1c1c1f;
+                }
+    
+                .logo-container img {
+                    height: 200px;
+                }
+            </style>
+    
+            <div class="logo-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYp5DGwLsBsV-s-SYLTDByuY2eXZ0suugp1A&s" alt="CINESmart AI Logo">
+            </div>
+        """, unsafe_allow_html=True)
 
 
         app = option_menu(
