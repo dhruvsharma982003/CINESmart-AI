@@ -42,16 +42,28 @@ class MultiPage:
     unsafe_allow_html=True
 )
 
-    # Assuming you have a logo image
-        st.markdown(
-            """
-            <div class="header-container">
-                <img src="https://sdmntprwestus.oaiusercontent.com/files/00000000-8554-6230-8c89-67998e956a86/raw?se=2025-04-28T13%3A02%3A03Z&sp=r&sv=2024-08-04&sr=b&scid=30605222-5d63-5f71-b72b-3078fe56bea0&skoid=a47cd303-16a2-427e-8efb-2ce406116005&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-28T11%3A24%3A02Z&ske=2025-04-29T11%3A24%3A02Z&sks=b&skv=2024-08-04&sig=QzknEso6bDPtQccUEYM7ZUPs4XVtGcvtaSZAkhxJxNk%3D" class="logo-img" alt="Logo">
-                <div class="logo-text">CINESmart AI</div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    st.markdown("""
+        <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+
+            .logo-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;  /* Use "flex-start" to align left */
+                padding: 20px 0;
+                background-color: #1c1c1f;
+            }
+
+            .logo-container img {
+                height: 200px;
+            }
+        </style>
+
+        <div class="logo-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYp5DGwLsBsV-s-SYLTDByuY2eXZ0suugp1A&s" alt="CINESmart AI Logo">
+        </div>
+    """, unsafe_allow_html=True)
 
 
         app = option_menu(
