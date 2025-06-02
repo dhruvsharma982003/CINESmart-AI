@@ -62,6 +62,9 @@ def app():
         </style>
     """, unsafe_allow_html=True)
 
+YOUTUBE_API_KEY = 'AIzaSyCJPMRlkYiISJIxFgydSbzPqhsjHlLdBD4'
+YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3/search'
+YOUTUBE_VIDEO_URL = 'https://www.youtube.com/watch?v='
 
 
     if st.button("Recommend"):
@@ -71,18 +74,77 @@ def app():
         with col1:
             st.text(recommended_movies[0])
             st.image(recommended_movies_posters[0])
+             # to get the movie trailers
+        search_params = {
+            'part': 'snippet',
+            'q': f"{recommended_movies[0]} trailer",
+            'key': YOUTUBE_API_KEY,
+            'type': 'video',
+            'maxResults': 1
+        }
+        response = requests.get(YOUTUBE_API_URL, params=search_params)
+        video_id = response.json()['items'][0]['id']['videoId']
+        st.video(YOUTUBE_VIDEO_URL + video_id)
+        
         with col2:
             st.text(recommended_movies[1])
             st.image(recommended_movies_posters[1])
+            # to get the movie trailers
+        search_params = {
+            'part': 'snippet',
+            'q': f"{recommended_movies[1]} trailer",
+            'key': YOUTUBE_API_KEY,
+            'type': 'video',
+            'maxResults': 1
+        }
+        response = requests.get(YOUTUBE_API_URL, params=search_params)
+        video_id = response.json()['items'][0]['id']['videoId']
+        st.video(YOUTUBE_VIDEO_URL + video_id)
+        
         with col3:
             st.text(recommended_movies[2])
             st.image(recommended_movies_posters[2])
+            # to get the movie trailers
+        search_params = {
+            'part': 'snippet',
+            'q': f"{recommended_movies[2]} trailer",
+            'key': YOUTUBE_API_KEY,
+            'type': 'video',
+            'maxResults': 1
+        }
+        response = requests.get(YOUTUBE_API_URL, params=search_params)
+        video_id = response.json()['items'][0]['id']['videoId']
+        st.video(YOUTUBE_VIDEO_URL + video_id)
+        
         with col4:
             st.text(recommended_movies[3])
             st.image(recommended_movies_posters[3])
+            # to get the movie trailers
+        search_params = {
+            'part': 'snippet',
+            'q': f"{recommended_movies[3]} trailer",
+            'key': YOUTUBE_API_KEY,
+            'type': 'video',
+            'maxResults': 1
+        }
+        response = requests.get(YOUTUBE_API_URL, params=search_params)
+        video_id = response.json()['items'][0]['id']['videoId']    
+        st.video(YOUTUBE_VIDEO_URL + video_id)
+        
         with col5:
             st.text(recommended_movies[4])
             st.image(recommended_movies_posters[4])
+            # to get the movie trailers
+        search_params = {
+            'part': 'snippet',
+            'q': f"{recommended_movies[4]} trailer",
+            'key': YOUTUBE_API_KEY,
+            'type': 'video',
+            'maxResults': 1
+        }
+        response = requests.get(YOUTUBE_API_URL, params=search_params)
+        video_id = response.json()['items'][0]['id']['videoId']
+        st.video(YOUTUBE_VIDEO_URL + video_id)
         
         # to load the dataset
     df = pd.read_csv('Movies.csv')
