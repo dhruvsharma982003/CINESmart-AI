@@ -64,6 +64,10 @@ def app():
     </style>
 """, unsafe_allow_html=True)
 
+    YOUTUBE_API_KEY = 'AIzaSyCJPMRlkYiISJIxFgydSbzPqhsjHlLdBD4'
+    YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3/search'
+    YOUTUBE_VIDEO_URL = 'https://www.youtube.com/watch?v='
+
     if st.button('Recommend'):
         recommended_songs = get_recommendations(selected_song_name)
         recommended_songs_posters = [fetch_poster(i[0]) for i in recommended_songs]
@@ -71,18 +75,83 @@ def app():
         with col1:
             st.text(recommended_songs[0])    
             st.image(recommended_songs_posters[0])
+
+        # to get songs from youtube
+            search_params = {
+                'part': 'snippet',
+                'q': recommended_songs[0],
+                'type': 'video',
+                'key': YOUTUBE_API_KEY
+            }
+            response = requests.get(YOUTUBE_API_URL, params=search_params)
+            data = response.json()
+            video_id = data['items'][0]['id']['videoId']
+            st.markdown(f'<iframe width="100%" height="315" src="https://www.youtube.com/embed/{video_id}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
+            st.markdown(f'<a href="{YOUTUBE_VIDEO_URL}{video_id}" target="_blank">Watch on YouTube</a>', unsafe_allow_html=True)
+            
         with col2:
             st.text(recommended_songs[1])    
             st.image(recommended_songs_posters[1])
+            # to get songs from youtube
+            search_params = {
+                'part': 'snippet',
+                'q': recommended_songs[1],
+                'type': 'video',
+                'key': YOUTUBE_API_KEY
+            }
+            response = requests.get(YOUTUBE_API_URL, params=search_params)
+            data = response.json()
+            video_id = data['items'][0]['id']['videoId']
+            st.markdown(f'<iframe width="100%" height="315" src="https://www.youtube.com/embed/{video_id}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
+            st.markdown(f'<a href="{YOUTUBE_VIDEO_URL}{video_id}" target="_blank">Watch on YouTube</a>', unsafe_allow_html=True)
+            
         with col3:
             st.text(recommended_songs[2])    
             st.image(recommended_songs_posters[2])
+            # to get songs from youtube
+            search_params = {
+                'part': 'snippet',
+                'q': recommended_songs[2],
+                'type': 'video',
+                'key': YOUTUBE_API_KEY
+            }
+            response = requests.get(YOUTUBE_API_URL, params=search_params)
+            data = response.json()
+            video_id = data['items'][0]['id']['videoId']
+            st.markdown(f'<iframe width="100%" height="315" src="https://www.youtube.com/embed/{video_id}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
+            st.markdown(f'<a href="{YOUTUBE_VIDEO_URL}{video_id}" target="_blank">Watch on YouTube</a>', unsafe_allow_html=True)
+            
         with col4:
             st.text(recommended_songs[3])    
             st.image(recommended_songs_posters[3])
+            # to get songs from youtube
+            search_params = {
+                'part': 'snippet',
+                'q': recommended_songs[3],
+                'type': 'video',
+                'key': YOUTUBE_API_KEY
+            }
+            response = requests.get(YOUTUBE_API_URL, params=search_params)
+            data = response.json()
+            video_id = data['items'][0]['id']['videoId']
+            st.markdown(f'<iframe width="100%" height="315" src="https://www.youtube.com/embed/{video_id}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
+            st.markdown(f'<a href="{YOUTUBE_VIDEO_URL}{video_id}" target="_blank">Watch on YouTube</a>', unsafe_allow_html=True)
+            
         with col5:
             st.text(recommended_songs[4])    
             st.image(recommended_songs_posters[4])
+            # to get songs from youtube
+            search_params = {
+                'part': 'snippet',
+                'q': recommended_songs[4],
+                'type': 'video',
+                'key': YOUTUBE_API_KEY
+            }
+            response = requests.get(YOUTUBE_API_URL, params=search_params)
+            data = response.json()
+            video_id = data['items'][0]['id']['videoId']
+            st.markdown(f'<iframe width="100%" height="315" src="https://www.youtube.com/embed/{video_id}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
+            st.markdown(f'<a href="{YOUTUBE_VIDEO_URL}{video_id}" target="_blank">Watch on YouTube</a>', unsafe_allow_html=True)
 
     df = pd.read_csv('Songs Dataset.csv')
 
